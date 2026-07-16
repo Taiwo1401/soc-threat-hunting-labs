@@ -45,7 +45,7 @@ Verify that Sysmon is functioning correctly and determine what information it re
 | 7 | Image Loaded | ✅|
 | 11 | File Created | ✅ |
 | 13 | Registry Value Set | ✅|
-| 22 | DNS Query | ☐ |
+| 22 | DNS Query | ✅ |
 
 
 ---
