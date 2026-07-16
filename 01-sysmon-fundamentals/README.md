@@ -1,5 +1,50 @@
 # Lab 01 – Sysmon Fundamentals
 
+# Background Theory
+
+## What is Sysmon?
+
+Sysmon (System Monitor) is a Windows system service and device driver developed by Microsoft Sysinternals. It records detailed information about system activity, such as process creation, network connections, file creation, registry modifications, and DNS queries. These logs help security professionals monitor endpoints and investigate suspicious behavior.
+
+## Why do SOC Analysts use Sysmon?
+
+SOC analysts use Sysmon because it provides much more detailed endpoint telemetry than the default Windows Event Logs. This additional visibility helps analysts:
+
+- Detect suspicious processes.
+- Monitor network connections.
+- Investigate malware activity.
+- Track file creation and modification.
+- Observe registry changes.
+- Support threat hunting and incident response.
+
+## What problems does Sysmon solve?
+
+By default, Windows does not log every activity that security analysts need. Sysmon fills this gap by providing detailed logs that make it easier to:
+
+- Detect malicious software.
+- Investigate security incidents.
+- Identify attacker techniques.
+- Improve endpoint visibility.
+- Support forensic investigations.
+
+## Windows Event Logs vs Sysmon
+
+| Windows Event Logs                      | Sysmon                                          |
+| --------------------------------------- | ----------------------------------------------- |
+| Built into Windows                      | Installed separately                            |
+| Records general operating system events | Records detailed security-related events        |
+| Limited security visibility             | Enhanced endpoint visibility                    |
+| Basic auditing                          | Advanced monitoring for security investigations |
+
+
+## Where are Sysmon logs stored?
+
+Applications and Services Logs
+└── Microsoft
+    └── Windows
+        └── Sysmon
+            └── Operational
+
 ## Objective
 
 The objective of this lab was to install, configure, and explore Microsoft Sysmon to improve endpoint visibility on a Windows system. This lab introduces how Sysmon generates detailed telemetry that supports threat hunting, detection engineering, and incident response.
