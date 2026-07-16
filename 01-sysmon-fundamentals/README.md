@@ -1,116 +1,108 @@
-# Lab 01 – Sysmon Fundamentals
+# Lab 01 — Sysmon Fundamentals
+
+## Objective
+
+Installed and configured Microsoft Sysmon on a Windows endpoint to improve system visibility and generate detailed security logs for threat hunting, detection engineering, and incident response.
+
+---
 
 ## Scenario
 
-You have joined a Security Operations Center (SOC) as a Junior SOC Analyst. Your organization wants better visibility into Windows endpoints because the default Windows logs are insufficient for detecting modern attacks.
-
-Your first assignment is to deploy Microsoft Sysmon, verify that it is collecting endpoint telemetry, and understand the types of events it records.
+As a Junior SOC Analyst, I was tasked with deploying Sysmon on a Windows workstation to enhance endpoint monitoring. After installation, I verified that Sysmon was collecting events and analyzed the generated logs to understand the information available during a security investigation.
 
 ---
 
-# Objective
-
-Install Sysmon, verify its operation, and analyze the endpoint telemetry it generates.
-
----
-
-# Estimated Time
-
-45–60 minutes
-
----
-
-# Difficulty
-
-🟢 Beginner
-
----
-
-# Prerequisites
-
-- Windows 11
-- Administrator privileges
-- Internet connection
-
----
-
-# Environment
+## Environment
 
 - Windows 11
 - PowerShell
 - Event Viewer
-- Sysmon
+- Microsoft Sysinternals Sysmon
 
 ---
 
-# Background Theory
+## Skills Practiced
 
-## What is Sysmon?
+- Sysmon installation
+- Endpoint monitoring
+- Windows Event Viewer
+- Process analysis
+- Security logging
+- Event ID analysis
+- Security documentation
 
-Sysmon (System Monitor) is a Windows system service and device driver developed by Microsoft Sysinternals. It records detailed information about system activity, such as process creation, network connections, file creation, registry modifications, and DNS queries. These logs help security professionals monitor endpoints and investigate suspicious behavior.
+---
 
-## Why SOC Analysts use Sysmon
+## Background Theory
 
-SOC analysts use Sysmon because it provides much more detailed endpoint telemetry than the default Windows Event Logs. This additional visibility helps analysts:
+Sysmon (System Monitor) is a Microsoft Sysinternals tool that extends the default Windows logging capabilities by recording detailed information about system activity.
 
-Detect suspicious processes.
-Monitor network connections.
-Investigate malware activity.
-Track file creation and modification.
-Observe registry changes.
-Support threat hunting and incident response.
+It provides valuable endpoint telemetry such as:
 
-## Windows Event Logs vs Sysmon
+- Process creation
+- Network connections
+- File creation
+- Registry modifications
+- DNS queries
 
-| Windows Event Logs                      | Sysmon                                          |
-| --------------------------------------- | ----------------------------------------------- |
-| Built into Windows                      | Installed separately                            |
-| Records general operating system events | Records detailed security-related events        |
-| Limited security visibility             | Enhanced endpoint visibility                    |
-| Basic auditing                          | Advanced monitoring for security investigations |
+SOC Analysts use Sysmon to improve visibility, investigate suspicious activity, perform threat hunting, and support incident response.
 
+---
 
+## Installation
 
+Open **PowerShell as Administrator** and navigate to the extracted Sysmon folder.
 
-# Lab Preparation
+```powershell
+.\Sysmon64.exe -i
+```
 
-Before beginning this lab:
+---
+
+## Verify Installation
+
+```powershell
+Get-Service Sysmon64
+```
+
+---
+
+## Event Viewer Location
+
+```
+Applications and Services Logs
+└── Microsoft
+    └── Windows
+        └── Sysmon
+            └── Operational
+```
+
+---
+
+## Common Sysmon Event IDs
+
+| Event ID | Description |
+|----------|-------------|
+| 1 | Process Creation |
+| 3 | Network Connection |
+| 5 | Process Terminated |
+| 7 | Image Loaded |
+| 11 | File Created |
+| 13 | Registry Value Set |
+| 22 | DNS Query |
+
+---
+
+## Lab Tasks
+
+### Part 1 — Download Sysmon
 
 - Download Sysmon from Microsoft Sysinternals.
-- Extract the ZIP file.
-- Open PowerShell as Administrator.
+- Extract the downloaded ZIP file.
 
 ---
 
-# Hands-on Tasks
-
-## Task 1 — Download Sysmon
-
-Download the latest Sysmon release from Microsoft's Sysinternals website.
-
-Expected Result:
-
-- Sysmon ZIP downloaded.
-
----
-
-## Task 2 — Extract Files
-
-Extract the downloaded ZIP.
-
-You should see files similar to:
-
-- Sysmon.exe
-- Sysmon64.exe
-- EULA
-
-Expected Result:
-
-- Files extracted successfully.
-
----
-
-## Task 3 — Install Sysmon
+### Part 2 — Install Sysmon
 
 Run:
 
@@ -118,17 +110,15 @@ Run:
 .\Sysmon64.exe -i
 ```
 
-Expected Result:
-
-Sysmon installs successfully.
-
-Evidence:
-
 📸 Screenshot
+
+```
+screenshots/sysmon-install.png
+```
 
 ---
 
-## Task 4 — Verify Installation
+### Part 3 — Verify Installation
 
 Run:
 
@@ -136,71 +126,46 @@ Run:
 Get-Service Sysmon64
 ```
 
-Expected Result:
-
-Status = Running
-
-Evidence:
-
 📸 Screenshot
+
+```
+screenshots/sysmon-service.png
+```
 
 ---
 
-## Task 5 — Open Event Viewer
+### Part 4 — Open Event Viewer
 
-Navigate to:
-
-Applications and Services Logs
-
-↓
-
-Microsoft
-
-↓
-
-Windows
-
-↓
-
-Sysmon
-
-↓
-
-Operational
-
-Expected Result:
-
-Sysmon Operational log opens.
-
-Evidence:
+Navigate to the Sysmon Operational log.
 
 📸 Screenshot
 
+```
+screenshots/event-viewer.png
+```
+
 ---
 
-## Task 6 — Examine Events
+### Part 5 — Examine an Event
 
-Open several events.
-
-Record:
+Open a Process Creation event and observe:
 
 - Event ID
-- Process Name
-- Command Line
+- Image
 - User
+- Parent Process
+- Command Line
 - Timestamp
-
-Expected Result:
-
-Understand the information available in each event.
-
-Evidence:
 
 📸 Screenshot
 
+```
+screenshots/event-details.png
+```
+
 ---
 
-## Task 7 — Generate Activity
+### Part 6 — Generate Activity
 
 Open:
 
@@ -208,59 +173,83 @@ Open:
 - Calculator
 - Command Prompt
 
-Refresh Event Viewer.
-
-Locate the generated events.
-
-Evidence:
+Refresh the Sysmon Operational log and locate the generated events.
 
 📸 Screenshot
 
----
-
-# Questions
-
-Answer these after completing the lab.
-
-1. What is Sysmon?
-
-2. Which Event IDs did you observe?
-
-3. Which process names appeared?
-
-4. Which user executed them?
-
-5. Why is Sysmon valuable to a SOC Analyst?
+```
+screenshots/process-events.png
+```
 
 ---
 
-# Screenshots Required
+## Commands Used
 
-- sysmon-install.png
-- sysmon-service.png
-- event-viewer.png
-- event-details.png
-- process-events.png
+```powershell
+.\Sysmon64.exe -i
 
----
-
-# Expected Outcome
-
-By the end of this lab you should be able to:
-
-- Install Sysmon.
-- Verify its operation.
-- Navigate Sysmon logs.
-- Understand endpoint telemetry.
-- Identify common Sysmon events.
+Get-Service Sysmon64
+```
 
 ---
 
-# Skills Demonstrated
+## Screenshots
 
-- Endpoint Monitoring
-- Windows Security
-- Sysmon
-- Event Viewer
-- Process Analysis
+### Sysmon Installation
+
+![Sysmon Installation](screenshots/sysmon-install.png)
+
+---
+
+### Sysmon Service
+
+![Sysmon Service](screenshots/sysmon-service.png)
+
+---
+
+### Event Viewer
+
+![Event Viewer](screenshots/event-viewer.png)
+
+---
+
+### Event Details
+
+![Event Details](screenshots/event-detail.png)
+
+---
+
+### Process Creation Events
+
+![Process Events](screenshots/process-event.png)
+
+---
+
+## What I Observed
+
+- Sysmon installed successfully and started as a Windows service.
+- The Sysmon Operational log was available in Event Viewer.
+- Process Creation events (Event ID 1) were generated after launching applications.
+- Each event included detailed information such as the process name, parent process, command line, user account, and timestamp.
+- Sysmon provided significantly more endpoint visibility than the default Windows Event Logs.
+
+---
+
+## Challenges Faced
+
+- Running Sysmon required PowerShell with Administrator privileges.
+- Understanding the different event fields required careful inspection of each log entry.
+- Some Event IDs (such as DNS Query events) may not appear with the default configuration.
+
+---
+
+## SOC Relevance
+
+Sysmon is one of the most widely used endpoint monitoring tools in Security Operations Centers. Its detailed logs enable analysts to investigate suspicious processes, monitor endpoint activity, perform threat hunting, develop detection rules, and support incident response.
+
+---
+
+## Outcome
+
+Successfully installed Microsoft Sysmon, verified its operation, explored Sysmon Operational logs, generated endpoint activity, and analyzed Process Creation events to gain foundational experience with endpoint telemetry used in SOC investigations.
 - Security Documentation
