@@ -37,9 +37,7 @@ The investigation focused on:
 3. Filtered the log to display only Event ID 1 (Process Creation) events.
 4. Generated endpoint activity by opening:
    - Notepad
-   - Calculator
-   - Paint
-   - Command Prompt
+   - Whatsapp
 5. Reviewed the newly generated events.
 6. Compared multiple Process Creation events.
 7. Examined parent-child process relationships.
