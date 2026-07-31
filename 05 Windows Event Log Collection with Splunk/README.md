@@ -126,7 +126,7 @@ source="WinEventLog:Application"
 
 ### Event Details
 
-![Event Details](screenshots/event-details.png)
+![Event Details](screenshots/events-details.png)
 
 ---
 
