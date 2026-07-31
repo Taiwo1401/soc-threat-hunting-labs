@@ -145,7 +145,7 @@ Windows Security Event Log
 
 ### Failed Login Count
 
-![Failed Login Count](screenshots/02-failed-login-count.png)
+![Failed Login Count](screenshots/02-failed-logins-count.png)
 
 ---
 
