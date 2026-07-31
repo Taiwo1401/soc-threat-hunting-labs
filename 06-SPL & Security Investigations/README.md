@@ -133,19 +133,19 @@ index=* sourcetype=*
 
 ### Security Events
 
-![Security Events](screenshots/04-security-events.png)
+![Security Events](screenshots/security-events.png)
 
 ---
 
 ### System Events
 
-![System Events](screenshots/05-system-events.png)
+![System Events](screenshots/system-events.png)
 
 ---
 
 ### Application Events
 
-![Application Events](screenshots/06-application-events.png)
+![Application Events](screenshots/application-events.png)
 
 ---
 
@@ -163,7 +163,7 @@ index=* sourcetype=*
 
 ### Event Details
 
-![Event Details](screenshots/09-event-details.png)
+![Event Details](screenshots/events-details.png)
 
 ---
 
