@@ -84,49 +84,49 @@ source="WinEventLog:Application"
 
 ### Splunk Login
 
-![Splunk Login](screenshots/01-splunk-login.png)
+![Splunk Login](screenshots/splunk-login.png)
 
 ---
 
 ### Local Event Log Configuration
 
-![Local Event Logs](screenshots/02-local-event-log-configured.png)
+![Local Event Logs](screenshots/local-event-log-configured.png)
 
 ---
 
 ### Search & Reporting
 
-![Search & Reporting](screenshots/03-search-reporting.png)
+![Search & Reporting](screenshots/search-reporting.png)
 
 ---
 
 ### All Indexed Events
 
-![Index All](screenshots/04-index-all-events.png)
+![Index All](screenshots/index-all-events.png)
 
 ---
 
 ### Security Events
 
-![Security Events](screenshots/05-security-events.png)
+![Security Events](screenshots/security-events.png)
 
 ---
 
 ### System Events
 
-![System Events](screenshots/06-system-events.png)
+![System Events](screenshots/system-events.png)
 
 ---
 
 ### Application Events
 
-![Application Events](screenshots/07-application-events.png)
+![Application Events](screenshots/application-events.png)
 
 ---
 
 ### Event Details
 
-![Event Details](screenshots/08-event-details.png)
+![Event Details](screenshots/event-details.png)
 
 ---
 
