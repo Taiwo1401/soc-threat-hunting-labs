@@ -206,7 +206,7 @@ This repository was created for educational purposes in a personal home lab envi
 
 Cybersecurity Student | SOC Analyst Enthusiast | Threat Hunting | SIEM | Incident Response
 
-- LinkedIn: *([Add your LinkedIn URL](https://www.linkedin.com/in/samuel-taiwo-48ab69300/))*
+- LinkedIn: *([Samuel Iyiola Taiwo](https://www.linkedin.com/in/samuel-taiwo-48ab69300/))*
 
 
 ---
